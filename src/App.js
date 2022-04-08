@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import Router from "./Routes/Router";
+import { AuthProvider } from "react-auth-kit";
+import { Container, Nav, Navbar } from "react-bootstrap";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <AuthProvider>
+        <Navbar bg="light" expand="lg">
+          <Container>
+            <Navbar.Brand href="#home">Isonew</Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="me-auto">
+                <Nav.Link href="/home">Home</Nav.Link>
+                <Nav.Link href="/">Login</Nav.Link>
+                <Nav.Link href="/register">Register</Nav.Link>
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
+        <Router />
+      </AuthProvider>
+    </>
   );
 }
 
